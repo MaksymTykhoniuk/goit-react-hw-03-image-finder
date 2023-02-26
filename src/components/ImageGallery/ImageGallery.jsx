@@ -1,9 +1,21 @@
-import { Component } from 'react';
+import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { Gallery } from './ImageGallery.styled';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export class ImageGallery extends Component {
-  render() {
-    return <Gallery></Gallery>;
-  }
-}
+export const ImageGallery = ({ images, onClick }) => {
+  return (
+    <Gallery>
+      {images.map((image, idx) => (
+        <ImageGalleryItem
+          key={idx}
+          onClick={onClick}
+          image={image}
+        ></ImageGalleryItem>
+      ))}
+    </Gallery>
+  );
+};
+
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.shape).isRequired,
+};

@@ -1,13 +1,23 @@
-import { Component } from 'react';
-import { ImageGalleryItem, ImageGalleryItemImage } from './ImageGallery.styled';
-// import PropTypes from 'prop-types';
+import { GalleryItem, GalleryItemImage } from './ImageGalleryItem.styled';
+import PropTypes from 'prop-types';
 
-export class ImageGallery extends Component {
-  render() {
-    return (
-      <ImageGalleryItem>
-        <ImageGalleryItemImage src="" alt="" />
-      </ImageGalleryItem>
-    );
-  }
-}
+export const ImageGalleryItem = ({ image, onClick }) => {
+  const { webformatURL, tags } = image;
+  return (
+    <GalleryItem
+      onClick={() => {
+        onClick(image);
+      }}
+    >
+      <GalleryItemImage src={webformatURL} alt={tags} />
+    </GalleryItem>
+  );
+};
+
+ImageGalleryItem.propTypes = {
+  image: PropTypes.shape({
+    webformatURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
+  }),
+  onClick: PropTypes.func.isRequired,
+};

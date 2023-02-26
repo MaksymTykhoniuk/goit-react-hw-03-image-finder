@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
-export const StyledButton = styled.button`
+export const LoadMoreButton = styled.button`
+  width: 100%;
   padding: 8px 16px;
   border-radius: 2px;
   background-color: #3f51b5;
