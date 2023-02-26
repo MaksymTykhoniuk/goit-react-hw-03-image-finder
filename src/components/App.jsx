@@ -50,7 +50,7 @@ export class App extends Component {
     if (this.state.page === 1) {
       images.hits.length > 0
         ? toast.success(` Wow! We found ${images.total} results!`, {
-            theme: 'dark',
+            theme: 'colored',
           })
         : toast.warn(`Sorry, but there are no results for your query`, {
             theme: 'dark',
